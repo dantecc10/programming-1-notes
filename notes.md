@@ -23,13 +23,13 @@ Incluyó una sintaxis más simple, aritmética de direcciones de memoria e intro
 
 Es una secuencia de letras y dígitos, donde el primer caracter debe ser una letra o subguión. Las letras mayúsculas son distintas de las minúsculas. Pueden tener cualquier longitud, pero sólo los primeros 31 caracteres son significativos.
 
-    Ejemplos:
+Ejemplos:
 
 * `x1 ≠ X1`
 * `var ≠ Var`
 * `var ≠ vaR`
 
-    Un identificador nunca puede ser una palabra reservada del lenguaje, como alguna de las siguientes:
+Un identificador nunca puede ser una palabra reservada del lenguaje, como alguna de las siguientes:
 
 * `short`
 * `int`
