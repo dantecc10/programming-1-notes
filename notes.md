@@ -121,6 +121,18 @@ main()
 
 Los comentarios en C son cadenas arbitrarias de símbolos colocados entre los delimitadores `/*` y `*/`.
 
+### Cadenas
+
+Una cadena es una secuencia de caracteres entre comillas. Si el caracter `"` tiene que aparecer en la cadena, se precede por el caracter `\`.
+
+Ejemplos:
+
+* `"Una cadena de texto"`
+* `"z"`
+* `"           "`
+* `"Una cadena con \" comillas"`
+* `""`
+
 ## Tipos de datos
 
 Los tipos básicos de variables en C son:
