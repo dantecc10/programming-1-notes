@@ -14,3 +14,11 @@
 ## Historia del lenguaje C
 
 C es un lenguaje de programación de propósito general, asociado a *UNIX*. Reúne características de los lenguajes de alto nivel; con gran poderío basado en sus operaciones a nivel de bits, y la mayorían de los elementos de la programación estructurada de los lenguajes de alto nivel. Proviene de BCPL, a través de B.
+
+Sirvió para mejorar el sistema *UNIX*, por lo que se le considera su lenguaje nativo. Desarrollado por Dennis Ritchie en 1971.
+
+Incluyó una sintaxis más simple, aritmética de direcciones de memoria e introdujo el concepto de ***apuntador***.
+
+## Identificadores
+
+Es una secuencia de letras y dígitos, donde el primer caracter debe ser una letra o subguión. Las letras mayúsculas son distintas de las minúsculas. Pueden tener cualquier longitud, pero sólo los primeros 31 caracteres son significativos.
