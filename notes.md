@@ -108,7 +108,11 @@ main()
 	printf("El valor de a es: %d", a);
 	printf("\nDame un dato: ");
 	scanf("%i", &a);
-	printf("\nEl valor de a después de leer: %d", a);
+	printf("\nEl valor de a después de leer: %i", a);
+	printf("\nEl valor de N es %d: ", N);
+	printf("\nEl valor de b es %i: ", b);
+	b = b + a;
+	printf("\nEl valor de b es %i: ", b);
 }
 ```
 
