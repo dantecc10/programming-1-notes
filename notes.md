@@ -78,12 +78,18 @@ main()
 ```c
 #include ...
 #define ...
+	/*
+		Constantes
+		Declaraciones globales
+		Prototipos de funciones
+		Variables
+	*/
 
 main(){
 	/*Declaraciones locales*/
 	/*Sentencias*/
 }
-Tipo t función f (){
+Tipo t función f (){ /*Definición de otras funciones*/
 }
 ```
 
