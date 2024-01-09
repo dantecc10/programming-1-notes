@@ -113,6 +113,7 @@ main()
 	printf("\nEl valor de b es %i: ", b);
 	b = b + a;
 	printf("\nEl valor de b es %i: ", b);
+	// N = N + a; /*No se puede asignar a una constante*/
 }
 ```
 
