@@ -90,5 +90,5 @@ Tipo t función f (){
 Los tipos básicos de variables en C son:
 
 * Caracter: Se declara con la palabra reservada `char`, ocupa un byte de memoria y puede representar 256 símbolos.
-* Real:
+* Real: Se declara con la palabra reservada `double` o `float`, ocupa 8 o 16 bytes de memoria, respectivamente.
 * Entero:
