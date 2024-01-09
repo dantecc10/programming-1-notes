@@ -93,6 +93,25 @@ Tipo t función f (){ /*Definición de otras funciones*/
 }
 ```
 
+Snippet:
+
+```c
+/*Muestra los tipos de datos y constantes*/
+
+#include <stdio.h>
+#define N 10 /*Se define la constante con valor de 10*/
+
+main()
+{
+	int a, b = 20;
+
+	printf("El valor de a es: %d", a);
+	printf("\nDame un dato: ");
+	scanf("%i", &a);
+	printf("\nEl valor de a después de leer: %d", a);
+}
+```
+
 ## Tipos de datos
 
 Los tipos básicos de variables en C son:
