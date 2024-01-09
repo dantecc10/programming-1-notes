@@ -117,6 +117,10 @@ main()
 }
 ```
 
+### Comentarios
+
+Los comentarios en C son cadenas arbitrarias de símbolos colocados entre los delimitadores `/*` y `*/`.
+
 ## Tipos de datos
 
 Los tipos básicos de variables en C son:
