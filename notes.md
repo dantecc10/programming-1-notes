@@ -59,6 +59,8 @@ Un identificador nunca puede ser una palabra reservada del lenguaje, como alguna
 * `union`
 * `sizeof`
 
+## Estructura de un programa en C
+
 Primer programa en C:
 
 ```c
@@ -70,3 +72,23 @@ main()
 	printf("Hola Puebla");
 }
 ```
+
+### Programa general
+
+```c
+#include ...
+#define ...
+
+main(){
+	/*Declaraciones locales*/
+	/*Sentencias*/
+}
+Tipo t función f (){
+}
+```
+
+Los tipos básicos de variables en C son:
+
+* Caracter: Se declara con la palabra reservada `char`
+* Real:
+* Entero:
