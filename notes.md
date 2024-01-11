@@ -155,6 +155,8 @@ Se tienen operadores:
 * Lógicos (`~`, `&`, `|`, `^`, `<<`, `>>`)
 * Asignación (`=`, `+=`, `-=`, `*=`, `/=`, `%=`, `<<=`, `>>=`, `&=`, `|=`, `^=`)
 
+Para hacer una conversión de datos en una operación, como un cociente flotante de dos enteros, se puede usar `w = (float)x/y //cast`.
+
 Programa de ejemplo:
 
 ```c
