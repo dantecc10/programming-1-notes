@@ -290,6 +290,7 @@ main(){
 	scanf(%i, &b);
 
 	printf("\nIndique la operación: ");
+	scanf(%c, &op);
 
 	switch(op){
 		case '+':
