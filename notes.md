@@ -317,3 +317,34 @@ main(){
 	}
 }
 ```
+
+## Ciclos
+
+### Ciclo `for`
+
+Estructura:
+
+```c
+for (expresión1, expresión2, expresión3){
+	proposiciones
+}
+```
+
+La estructura del ciclo `for` es equivalente a:
+
+```c
+expresión1;
+
+while(expresión2){
+	proposiciones;
+	expresión3;
+}
+```
+
+Ejemplo de ciclo infinito:
+
+```c
+for(;;) {
+	break; // Esto rompe el ciclo dentro de las instrucciones
+}
+```
