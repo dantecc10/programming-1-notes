@@ -282,7 +282,7 @@ Ejemplo:
 
 main(){
 	int a, b;
-		float c;
+	float c;
 	char op;
 	printf("\nIndique a: ");
 	scanf(%i, &a);
@@ -295,20 +295,20 @@ main(){
 	switch(op){
 		case '+':
 			c = a + b;
-			printf("\nLa suma es: %d", c);
+			printf("\nLa suma es: %f", c);
 			break;
 		case '-':
 			c = a - b;
-			printf("\nLa resta es: %d", c);
+			printf("\nLa resta es: %f", c);
 			break;
 		case '*':
 			c = a * b;
-			printf("\nEl producto es: %d", c);
+			printf("\nEl producto es: %f", c);
 			break;
 		case '/':
 			if (b != 0) {
-				c = a / b;
-				printf("\nEl cociente es es: %d", c);
+				c = (float) a / b;
+				printf("\nEl cociente es es: %f", c);
 			} else {
 				printf("\nEl divisor no puede ser 0.);
 			}
