@@ -172,3 +172,147 @@ int main() {
 	printf("\nEl NOT es: %d", z);
 }
 ```
+
+## Condicionales
+
+Se usan las palabras reservadas printf, scanf, getchar, puts, putc, fprint, fscan.
+
+## Estructura de secuencia
+
+En se tienen proposiciones. Una proposición simepl es una única instrucción. Una proposición compuesta son dos o más instrucciones, en este caso es necesario que éstas se encuentren entre corchetes `{}`.
+
+Cada instrucción
+
+## Estructuras de decisión
+
+Hay dos ejemplos básicos:
+
+* Condicional simple:
+  * `if` (condición)
+    * *Proposición*
+* Condición doble:
+  * `if` (condición)
+
+    * *Proposición verdadera*
+  * `else`
+
+    * *Proposición falsa*
+
+Ejemplo de condicional simple:
+
+```c
+#include <stdio.h>
+
+main() {
+	int a;
+
+	printf("\nDame el número: ");
+	scanf("%d", &a);
+
+	if(a < 0) // No es necesario escribir las llaves cuando sólo hay una instrucción
+		a *= -1; // a = a * -1
+
+	printf("\El valor absoluto es: %i", a);
+}
+```
+
+Ejemplo de condicional doble:
+
+```c
+#include <stdio.h>
+
+main() {
+	int a, b;
+
+	printf("\nDame el primer número: ");
+	scanf("%d", &a);
+	printf("\nDame el segundonúmero: ");
+	scanf("%d", &b);
+
+	if(a > b) // No es necesario escribir las llaves cuando sólo hay una instrucción
+		printf("El primer número es mayor");
+	else
+		if(a<b)
+			printf("\El segundo número es mayor");
+		else
+			printf("\nAmbos números son iguales");
+
+	printf("\El valor absoluto es: %i", a);
+}
+```
+
+### Expresión condicional <`?`>
+
+Ejemplo simple:
+
+```c
+#include <stdio.h>
+
+main() {
+	int a, b;
+
+	printf("\nDame el primer número: ");
+	scanf("%d", &a);
+	printf("\nDame el segundonúmero: ");
+	scanf("%d", &b);
+
+	(a > b) ? printf("\nEl primer número es mayor") : (a < b) ? printf("\El segundo número es mayor") : printf("\nAmbos números son iguales");
+
+}
+```
+
+### Decisión múltiple
+
+La decisión múltiple, con condición igual es de esta forma:
+
+```c
+switch(expresión){
+	case exp_const:
+		proposición
+		break;
+	default:
+		proposición
+}
+```
+
+Ejemplo:
+
+```c
+#include <stdio.h>
+
+main(){
+	int a, b;
+		float c;
+	char op;
+	printf("\nIndique a: ");
+	scanf(%i, &a);
+	printf("\nIndique b: ");
+	scanf(%i, &b);
+
+	printf("\nIndique la operación: ");
+
+	switch(op){
+		case '+':
+			c = a + b;
+			printf("\nLa suma es: %d", c);
+			break;
+		case '-':
+			c = a - b;
+			printf("\nLa resta es: %d", c);
+			break;
+		case '*':
+			c = a * b;
+			printf("\nEl producto es: %d", c);
+			break;
+		case '/':
+			if (b != 0) {
+				c = a / b;
+				printf("\nEl cociente es es: %d", c);
+			} else {
+				printf("\nEl divisor no puede ser 0.);
+			}
+			break;
+
+	}
+}
+```
