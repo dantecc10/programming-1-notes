@@ -348,3 +348,21 @@ for(;;) {
 	break; // Esto rompe el ciclo dentro de las instrucciones
 }
 ```
+
+### Ciclo `while`
+
+El ciclo while ejecuta un bloque de código hasta que la condición no se cumpla:
+
+```c
+#include <stdio.h>
+
+main(){
+	int suma = 0, dato = 3;
+	while(dato >= 0){
+		printf("\nDame un dato: ");
+		scanf("%d", &dato);
+		suma += dato;
+	}
+	printf("\nLa suma es: %d", suma);
+}
+```
