@@ -8,25 +8,20 @@ int main() {
 	printf("Elija la figura: \n1.- Circulo\n2.- Cuadrado\n3.- Pentagono\n4.- Hexagono\n5.- Salir\nOpcion = ");
 	scanf("%d", &option);
 
+	(option == 1) ? printf("\nIntroduzca el valor del diametro: ") : printf("\nIntroduzca el valor del lado: ");
+	scanf("%f", &l);
+
 	switch(option) {
 		case 1:
-			printf("\nIntroduzca el valor del diametro: ");
-			scanf("%f", &l);
 			p = l*pi;
 			break;
 		case 2:
-			printf("\nIntroduzca el valor del lado: ");
-			scanf("%f", &l);
 			p = l*4;
 			break;
 		case 3:
-			printf("\nIntroduzca el valor del lado: ");
-			scanf("%f", &l);
 			p = l*5;
 			break;
 		case 4:
-			printf("\nIntroduzca el valor del lado: ");
-			scanf("%f", &l);
 			p = l*6;
 			break;
 		default:

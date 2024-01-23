@@ -366,3 +366,19 @@ main(){
 	printf("\nLa suma es: %d", suma);
 }
 ```
+
+## Arreglos
+
+Un arreglo es un conjnto finito e indexado de elementos homogéneos.
+
+Formalmente, se define un arreglo de tamaño n de los elementos de tipo A.
+
+### Definición
+
+Para definir, se emplea la siguiente sintaxis:
+
+`tipo nom_var[TAM];`
+
+El arreglo inicia en 0 y termina en TAM-1.
+
+Ping

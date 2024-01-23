@@ -6,11 +6,12 @@
 
 int main() {
 	int r = 0;
-	float cal;
+	float cal, contador= 0;
 
 	for (int i = 0; i<3; i++) {
 		printf("\nIngrese la calificacion de la materia %d: ", (i+1));
 		scanf("%f", &cal);
+		contador+=cal;
 		if(cal<6) {
 			r++;
 		}
@@ -23,5 +24,5 @@ int main() {
 	} else {
 		printf("\nUsted ha reprobado %d materia(s). Debe presentar examen ordinario.", r);
 	}
-
+	printf("\nSu promedio es: %.2f", (contador/3));
 }
