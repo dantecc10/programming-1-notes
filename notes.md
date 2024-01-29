@@ -381,4 +381,40 @@ Para definir, se emplea la siguiente sintaxis:
 
 El arreglo inicia en 0 y termina en TAM-1.
 
+#### Ejemplo
+
+```c
+
+
+/*
+	Programa que suma dos vectores
+*/
+
+#include <stdio.h>
+#define MAX 10
+
+int main(){
+	int A[MAX], B[MAX], C[MAX], i;
+
+	do{
+		printf("\nDame la dimension del arreglo: ");
+		scanf("%d", &n);
+
+		if(n>MAX){
+			printf("\nEl tamanio maximo del arreglo es %i", MAX);
+		}
+	} while(n>MAX);
+	printf("\nDame el primer arreglo: ");
+	for(i = 0; i<n; i++){
+		printf("\nA[%D]: ", (i+1));
+		scanf("%i", &A[i]);
+	}
+	printf("\nDame el segundo arreglo: ");
+	for(i = 0; i<n; i++){
+		printf("\nB[%D]: ", (i+1));
+		scanf("%i", &B[i]);
+	}
+}
+```
+
 Ping
