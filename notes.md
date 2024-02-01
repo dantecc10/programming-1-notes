@@ -384,8 +384,6 @@ El arreglo inicia en 0 y termina en TAM-1.
 #### Ejemplo
 
 ```c
-
-
 /*
 	Programa que suma dos vectores
 */
