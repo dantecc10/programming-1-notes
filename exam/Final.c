@@ -39,7 +39,7 @@ int main ()
             printf ("\n Opcion: ");
             result = scanf ("%d",&opc);
             if (result==0 || opc<1 || opc>5)  {
-                printf ("\n Ingresa un n%cmero valido, los caracteres no son aceptados\n",163);
+                printf ("\n Ingresa un numero valido, los caracteres no son aceptados\n",163);
                 while (getchar() != '\n');
             }
         } while (result==0 || opc<1 || opc>5);
