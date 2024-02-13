@@ -21,13 +21,10 @@
 
 #include <stdio.h>
 
-#define MAX 100
-
 int main ()
 {
     int opc, valid, last; // Variables de menu y vadilacion
     const char linea1[]="********************************", linea2[]="--------------------------------"; // Lineas de menu
-    int cont,cal,califs[100],j,respaldo; // Variables para la opción 3
 
     do {
         printf ("\n%s", linea1);
@@ -43,15 +40,14 @@ int main ()
             printf ("\n Opcion: ");
             valid = scanf ("%d",&opc);
 
-            if (valid==0) {
-                printf ("\n Los caracteres no son aceptados\n");
-                while (getchar() != '\n') {}
-            }
-            else if ((last = getchar()) != '\n') {
-                printf ("\n Los caracteres no son aceptados\n");
+            if ((last = getchar()) != '\n') {
                 while (getchar() != '\n') {}
                 valid = 0;
             }
+
+            if (valid==0)
+                printf ("\n Los caracteres no son aceptados\n");
+
         } while (valid==0);
 
         if (opc >= 1 && opc <= 5)
@@ -64,25 +60,24 @@ int main ()
                 // Ciclo que valida la entrada
                 do {
                     printf ("\n Temperatura del sujeto: ");
-                    valid = scanf ("%f",&temp);
+                    valid = scanf ("%d",&temp);
 
-                    if (valid==0) {
-                        printf ("\n Los caracteres no son aceptados\n");
-                        while (getchar() != '\n') {}
-                    }
-                    else if ((last = getchar()) != '\n') {
-                        printf ("\n Los caracteres no son aceptados\n");
+                    if ((last = getchar()) != '\n') {
                         while (getchar() != '\n') {}
                         valid = 0;
                     }
+
+                    if (valid==0)
+                        printf ("\n Los caracteres no son aceptados\n");
+
                 } while (valid==0);
 
                 if (temp<35.0)
-                    printf ("\n El sujeto tiene hipotermia\n", temp, 248);
+                    printf ("\n El sujeto tiene hipotermia\n");
                 else if (temp<=37.0)
-                    printf ("\n La temperatura es normal\n", temp, 248);
+                    printf ("\n La temperatura es normal\n");
                 else
-                    printf ("\n El sujeto tiene hipertermia\n", temp, 248);
+                    printf ("\n El sujeto tiene hipertermia\n");
 
                 break;
 
@@ -91,6 +86,8 @@ int main ()
                 break;
 
             case 3:
+                int cont , cal, califs[100], j, respaldo;
+
                 cont=1;
                 j=0;
                 printf("\n Ingrese las calificaciones\n");
@@ -114,12 +111,12 @@ int main ()
                             j++;
                         };//----------------------
                         if (cont-1!=0){
-                            printf("\nArreglo ordenado\n%s\n", linea2);
+                            printf("\n Arreglo ordenado\n%s\n", linea2);
                             for(int i=0;i<cont-1;i++){
                     printf("%i\n",califs[i]);
                     };
-                    printf("\nLa menor calificacion es: %i\n",califs[0]);
-                    printf("La mayor calificacion es: %i\n",califs[cont-2]);
+                    printf("\n La menor calificacion es: %i\n",califs[0]);
+                    printf(" La mayor calificacion es: %i\n",califs[cont-2]);
                 };
 	            break;
 
