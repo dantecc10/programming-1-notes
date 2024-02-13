@@ -31,31 +31,33 @@ int main ()
         printf ("\n 2 -    Multiplos");
         printf ("\n 3 -     Arreglos");
         printf ("\n 4 -      Cadenas");
-        printf ("\n 5 -        Salir");
+        printf ("\n 5 -        Salir\n");
 
         /* Validacion de la opcion, para evitar errores */
+        /* Debe mejorarse, acepta cadenas que empiezan en un número (no deberia de suceder)*/
         do {
             printf ("\n Opcion: ");
             result = scanf ("%d",&opc);
             if (result==0 || opc<1 || opc>5)  {
                 printf ("\n Ingresa un n%cmero valido, los caracteres no son aceptados\n",163);
-                getchar();
+                while (getchar() != '\n');
             }
-        } while (result==0);
+        } while (result==0 || opc<1 || opc>5);
 
         /* Menu */
         switch (opc) {
             case 1:
-                float temp, result;
+                float temp;
 
                 /* Validacion de una temperatura, dada en números */
+                /* Debe mejorarse, acepta cadenas que empiezan en un número (no deberia de suceder)*/
                 do {
-                    printf ("\nTemperatura del sujeto: ");
+                    printf ("\n Temperatura del sujeto: ");
                     result = scanf ("%f",&temp);
 
                     if (result==0) {
                         printf ("\n Ingresa un valor valido, sin caracteres desconocidos\n");
-                        getchar();
+                        while (getchar() != '\n');
                     }
                 } while (result==0);
 
