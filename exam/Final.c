@@ -105,7 +105,7 @@ int main ()
 		      printf("\nLa menor calificacion es: %i\n",califs[0]);
 		      printf("La mayor calificacion es: %i\n",califs[cont-2]);
 		};
-			    break;
+	        break;
 
             case 4:
                 /* Codigo */
