@@ -24,7 +24,7 @@
 int main ()
 {
     int opc, result;
-    int cont,cal,califs[100],j=0,respaldo; //variables para la opción 3
+    int cont,cal,califs[100],j,respaldo; //variables para la opción 3
     do {
         printf ("\n ---   Menu   ---");
         printf ("\n 1 -  Temperatura");
@@ -76,6 +76,7 @@ int main ()
 
             case 3:
                 cont=1;
+		j=0;
 	        printf("Ingrese las calificaciones\n");
 		printf("1. ");
 		scanf("%i",&cal);
