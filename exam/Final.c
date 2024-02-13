@@ -24,7 +24,7 @@
 int main ()
 {
     int opc, result;
-
+    int cont,cal,califs[100],j=0,respaldo; //variables para la opción 3
     do {
         printf ("\n ---   Menu   ---");
         printf ("\n 1 -  Temperatura");
@@ -75,8 +75,36 @@ int main ()
                 break;
 
             case 3:
-                /* Codigo */
-                break;
+                cont=1;
+			    printf("Ingrese las calificaciones\n");
+			    printf("1. ");
+			    scanf("%i",&cal);
+			    while(cal>500 && cont<100){
+					califs[cont-1]=cal;//para almacenar las calificaciones en el arreglo 
+					printf("%i. ",cont+1);
+					scanf("%i",&cal);
+					cont++;
+				};
+				//Bubblesort
+                for (int i=1;i<=cont-1;i++){
+                     for (int p=0;p<=j;p++){
+                           if (califs[p]>califs[j]){
+                               respaldo=califs[j];
+                               califs[j]=califs[p];
+                               califs[p]=respaldo;
+                            };
+                      };
+                      j++;
+                };//----------------------
+                if (cont-1!=0){
+                      printf("\nArreglo ordenado\n---------------\n");
+                      for(int i=0;i<cont-1;i++){
+					      printf("%i\n",califs[i]);
+				      };
+				      printf("La menor calificacion es: %i\n",califs[0]);
+				      printf("La mayor calificacion es: %i\n",califs[cont-2]);
+			    };
+			    break;
 
             case 4:
                 /* Codigo */
