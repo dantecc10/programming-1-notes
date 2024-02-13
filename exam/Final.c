@@ -25,6 +25,7 @@ int main ()
 {
     int opc, result; // Variables opcion 2
     int cont,cal,califs[100],j,respaldo; // Variables para la opción 3
+    int n,i,bandera;// Variables para la opción 4
     const char linea1[]="******************************", linea2[]="------------------------------";
 
     do {
@@ -111,9 +112,51 @@ int main ()
                 };
 	            break;
 
-            case 4:
-                /* Codigo */
-                break;
+            case 4: {
+            	printf("%s\n",linea2);
+					//Lectura y comprobacion de tamaño de las cadenas
+					do {
+						printf("Ingrese primera cadena\n");
+						scanf("%s",&cad1);
+						while (getchar() != '\n'){}
+						i=0;n=0;
+						while(cad1[i]!='\0') {
+							i=i+1;
+							n=n+1;	
+						}
+						if (i>32 || i<1) {
+							printf("\a\n*Tama%co invalido*\n",(char)164);
+						}
+					}while (i>32);	
+					printf("\n");
+					do {
+						printf("Ingrese segunda cadena\n");
+						scanf("%s",&cad2);
+						while (getchar() != '\n'){}
+						i=0;
+						while(cad2[i]!='\0') {
+							i=i+1;	
+						}
+						if (i>32 || i<1) {
+							printf("\a\n*Tama%co invalido*\n",(char)164);
+						}
+					}while (i>32);		
+					//Comparacion de las dos cadenas
+					bandera=1;
+					for(i=0;i<n;i++) {
+						if(cad1[i]!=cad2[i]) {
+							bandera=0;
+						}	
+					}
+					//Resultado de la comprobación
+					if (bandera==1) {
+						printf("\n*Las cadenas son iguales*\n");
+					}
+					else {
+						printf("\n*Las cadenas no son iguales*\n");
+					}
+				break;
+				}
 
             case 5:
                 printf ("\n Hasta luego, vuelva pronto\n");
