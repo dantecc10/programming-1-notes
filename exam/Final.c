@@ -23,15 +23,18 @@
 
 int main ()
 {
-    int opc, result;
-    int cont,cal,califs[100],j,respaldo; //variables para la opción 3
+    int opc, result; // Variables opcion 2
+    int cont,cal,califs[100],j,respaldo; // Variables para la opción 3
+    const char linea1[]="******************************", linea2[]="------------------------------";
+
     do {
-        printf ("\n ---   Menu   ---");
-        printf ("\n 1 -  Temperatura");
-        printf ("\n 2 -    Multiplos");
-        printf ("\n 3 -     Arreglos");
-        printf ("\n 4 -      Cadenas");
-        printf ("\n 5 -        Salir\n");
+        printf ("\n%s", linea1);
+        printf ("\n* 1.   Temperatura           *");
+        printf ("\n* 2.   Multiplos             *");
+        printf ("\n* 3.   Arreglos              *");
+        printf ("\n* 4.   Cadenas               *");
+        printf ("\n* 5.   Salir                 *");
+        printf ("\n%s", linea1);
 
         /* Validacion de la opcion, para evitar errores */
         /* Debe mejorarse, acepta cadenas que empiezan en un número (no deberia de suceder)*/
@@ -39,13 +42,14 @@ int main ()
             printf ("\n Opcion: ");
             result = scanf ("%d",&opc);
             if (result==0 || opc<1 || opc>5)  {
-                printf ("\n Ingresa un numero valido, los caracteres no son aceptados\n",163);
+                printf ("\n Ingresa un n%cmero valido, los caracteres no son aceptados\n",163);
                 while (getchar() != '\n');
             }
         } while (result==0 || opc<1 || opc>5);
 
-        /* Menu */
-        switch (opc) {
+        printf ("%s", linea2);
+
+        switch (opc) { // Opciones
             case 1:
                 float temp;
 
@@ -62,11 +66,11 @@ int main ()
                 } while (result==0);
 
                 if (temp<35.0)
-                    printf ("\n El sujeto tiene hipotermia\n");
+                    printf ("\n El sujeto tiene hipotermia");
                 else if (temp<=37.0)
-                    printf ("\n La temperatura es normal\n");
+                    printf ("\n La temperatura es normal");
                 else
-                    printf ("\n El sujeto tiene hipertemia\n");
+                    printf ("\n El sujeto tiene hipertemia");
 
                 break;
 
@@ -76,36 +80,36 @@ int main ()
 
             case 3:
                 cont=1;
-		j=0;
-	        printf("Ingrese las calificaciones\n");
-		printf("1. ");
-		scanf("%i",&cal);
-		while(cal>500 && cont<100){
-			califs[cont-1]=cal;//para almacenar las calificaciones en el arreglo 
-			printf("%i. ",cont+1);
-			scanf("%i",&cal);
-			cont++;
-		};
-		//Bubblesort
-                for (int i=1;i<=cont-1;i++){
-                     for (int p=0;p<=j;p++){
-                           if (califs[p]>califs[j]){
-                               respaldo=califs[j];
-                               califs[j]=califs[p];
-                               califs[p]=respaldo;
+                j=0;
+                    printf("\nIngrese las calificaciones\n");
+                printf("1. ");
+                scanf("%i",&cal);
+                while(cal>500 && cont<100){
+                    califs[cont-1]=cal;//para almacenar las calificaciones en el arreglo 
+                    printf("%i. ",cont+1);
+                    scanf("%i",&cal);
+                    cont++;
+                };
+                //Bubblesort
+                        for (int i=1;i<=cont-1;i++){
+                            for (int p=0;p<=j;p++){
+                                if (califs[p]>califs[j]){
+                                    respaldo=califs[j];
+                                    califs[j]=califs[p];
+                                    califs[p]=respaldo;
+                                    };
                             };
-                      };
-                      j++;
-                };//----------------------
-                if (cont-1!=0){
-                      printf("\nArreglo ordenado\n---------------\n");
-                      for(int i=0;i<cont-1;i++){
-			  printf("%i\n",califs[i]);
-		      };
-		      printf("\nLa menor calificacion es: %i\n",califs[0]);
-		      printf("La mayor calificacion es: %i\n",califs[cont-2]);
-		};
-	        break;
+                            j++;
+                        };//----------------------
+                        if (cont-1!=0){
+                            printf("\nArreglo ordenado\n%s\n", linea2);
+                            for(int i=0;i<cont-1;i++){
+                    printf("%i\n",califs[i]);
+                    };
+                    printf("\nLa menor calificacion es: %i\n",califs[0]);
+                    printf("La mayor calificacion es: %i\n",califs[cont-2]);
+                };
+	            break;
 
             case 4:
                 /* Codigo */
@@ -116,6 +120,8 @@ int main ()
                 break;
 
         }
+
+        printf ("\n%s\n", linea2);
 
     } while (opc!=5);
 
