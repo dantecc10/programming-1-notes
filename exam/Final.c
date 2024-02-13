@@ -43,15 +43,14 @@ int main ()
             printf ("\n Opcion: ");
             valid = scanf ("%d",&opc);
 
-            if (valid==0) {
-                printf ("\n Las cadenas y caracteres no son aceptados\n");
-                while (getchar() != '\n') {}
-            }
-            else if ((last = getchar()) != '\n') {
-                printf ("\n Las cadenas y caracteres no son aceptados\n");
+            if ((last = getchar()) != '\n') {
                 while (getchar() != '\n') {}
                 valid = 0;
             }
+
+            if (valid==0)
+                printf ("\n Los caracteres no son aceptados\n");
+
         } while (valid==0);
 
         if (opc >= 1 && opc <= 5)
@@ -64,17 +63,16 @@ int main ()
                 // Ciclo que valida la entrada
                 do {
                     printf ("\n Temperatura del sujeto: ");
-                    valid = scanf ("%f",&temp);
+                    valid = scanf ("%d",&opc);
 
-                    if (valid==0) {
-                        printf ("\n Las cadenas y caracteres no son aceptados\n");
-                        while (getchar() != '\n') {}
-                    }
-                    else if ((last = getchar()) != '\n') {
-                        printf ("\n Las cadenas y caracteres no son aceptados\n");
+                    if ((last = getchar()) != '\n') {
                         while (getchar() != '\n') {}
                         valid = 0;
                     }
+
+                    if (valid==0)
+                        printf ("\n Los caracteres no son aceptados\n");
+
                 } while (valid==0);
 
                 if (temp<35.0)
