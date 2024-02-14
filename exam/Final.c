@@ -21,63 +21,62 @@
 
 #include <stdio.h>
 
-int main ()
-{
+#define LINE1 "********************************"
+#define LINE2 "--------------------------------"
+
+int main() {
     int opc, valid, last; // Variables de menu y vadilacion
-    const char linea1[]="********************************", linea2[]="--------------------------------"; // Lineas de menu
 
     do {
-        printf ("\n%s", linea1);
-        printf ("\n* 1.   Temperatura             *");
-        printf ("\n* 2.   Multiplos               *");
-        printf ("\n* 3.   Arreglos                *");
-        printf ("\n* 4.   Cadenas                 *");
-        printf ("\n* 5.   Salir                   *");
-        printf ("\n%s", linea1);
-
-        // Ciclo que valida la entrada
-        do {
-            printf ("\n Opcion: ");
+        printf("\n%s", LINE1);
+        printf("\n* 1.   Temperatura             *");
+        printf("\n* 2.   Multiplos               *");
+        printf("\n* 3.   Arreglos                *");
+        printf("\n* 4.   Cadenas                 *");
+        printf("\n* 5.   Salir                   *");
+        printf("\n%s", LINE1);
+        
+        do { // Ciclo que valida la entrada
+            printf("\n Opcion: ");
             valid = scanf ("%d",&opc);
 
-            if ((last = getchar()) != '\n') {
-                while (getchar() != '\n') {}
+            if((last = getchar()) != '\n') { // Si se ingresa una caracter
+                while(getchar() != '\n') {}
                 valid = 0;
             }
 
-            if (valid==0)
-                printf ("\n Los caracteres no son aceptados\n");
+            if(valid==0)
+                printf("\n Los caracteres no son aceptados\n");
 
-        } while (valid==0);
+        } while(valid==0);
 
-        if (opc >= 1 && opc <= 5)
-            printf ("%s\n", linea2);
+        if(opc >= 1 && opc <= 5) // Solo imprime si la opcion es valida
+            printf("%s\n", LINE2);
 
         switch (opc) { // Opciones
             case 1:
                 float temp;
 
-                // Ciclo que valida la entrada
-                do {
-                    printf ("\n Temperatura del sujeto: ");
-                    valid = scanf ("%d",&temp);
+                do { // Ciclo que valida la entrada
+                    printf("\n Temperatura del sujeto: ");
+                    valid = scanf ("%f",&temp);
 
-                    if ((last = getchar()) != '\n') {
-                        while (getchar() != '\n') {}
+                    if((last = getchar()) != '\n') {
+                        while(getchar() != '\n') {}
                         valid = 0;
                     }
 
-                    if (valid==0)
-                        printf ("\n Los caracteres no son aceptados\n");
+                    if(valid==0)
+                        printf("\n Los caracteres no son aceptados\n");
 
-                } while (valid==0);
+                } while(valid==0);
 
-                if (temp<35.0)
-                    printf ("\n El sujeto tiene hipotermia\n");
-                else if (temp<=37.0)
-                    printf ("\n La temperatura es normal\n");
+                if(temp<35.0)
+                    printf("\n El sujeto tiene hipotermia\n");
+                else if(temp<=37.0)
+                    printf("\n La temperatura es normal\n");
                 else
-                    printf ("\n El sujeto tiene hipertermia\n");
+                    printf("\n El sujeto tiene hipertermia\n");
 
                 break;
 
@@ -88,32 +87,33 @@ int main ()
             case 3:
                 int cont , cal, califs[100], j, respaldo;
 
-                cont=1;
-                j=0;
+                cont = 1;
+                j = 0;
                 printf("\n Ingrese las calificaciones\n");
-                printf("1. ");
+                printf(" 1. ");
                 scanf("%i",&cal);
                 while(cal>500 && cont<100){
-                    califs[cont-1]=cal;//para almacenar las calificaciones en el arreglo 
-                    printf("%i. ",cont+1);
+                    califs[cont-1]=cal; // Para almacenar las calificaciones en el arreglo 
+                    printf(" %i. ",cont+1);
                     scanf("%i",&cal);
                     cont++;
                 };
+
                 //Bubblesort
-                        for (int i=1;i<=cont-1;i++){
-                            for (int p=0;p<=j;p++){
-                                if (califs[p]>califs[j]){
-                                    respaldo=califs[j];
-                                    califs[j]=califs[p];
-                                    califs[p]=respaldo;
-                                    };
+                for (int i=1; i<=cont-1; i++){
+                    for (int p=0;p<=j;p++){
+                        if(califs[p]>califs[j]){
+                            respaldo=califs[j];
+                            califs[j]=califs[p];
+                            califs[p]=respaldo;
                             };
-                            j++;
-                        };//----------------------
-                        if (cont-1!=0){
-                            printf("\n Arreglo ordenado\n%s\n", linea2);
-                            for(int i=0;i<cont-1;i++){
-                    printf("%i\n",califs[i]);
+                    };
+                    j++;
+                };//----------------------
+                if(cont-1!=0){
+                    printf("\n Arreglo ordenado\n%s\n", LINE2);
+                    for(int i=0; i<cont-1; i++){
+                        printf(" %i\n",califs[i]);
                     };
                     printf("\n La menor calificacion es: %i\n",califs[0]);
                     printf(" La mayor calificacion es: %i\n",califs[cont-2]);
@@ -128,41 +128,42 @@ int main ()
                 do {
                     printf("\n Ingrese primera cadena\n ");
                     scanf("%s",&cad1);
-                    while (getchar() != '\n'){}
-                    i=0; n=0;
+                    while(getchar() != '\n'){}
+                    i = 0; n = 0;
                     while(cad1[i]!='\0') {
-                        i=i+1;
-                        n=n+1;	
+                        i = i+1;
+                        n = n+1;	
                     }
-                    if (i>32 || i<1) {
+                    if(i>32 || i<1) {
                         printf("\a\n *Tama%co invalido*\n",(char)164);
                     }
-                } while (i>32);	
+                } while(i>32);	
 
                 printf("\n");
 
                 do {
                     printf(" Ingrese segunda cadena\n ");
                     scanf("%s",&cad2);
-                    while (getchar() != '\n'){}
-                    i=0;
+                    while(getchar() != '\n'){}
+                    i = 0;
                     while(cad2[i]!='\0') {
-                        i=i+1;	
+                        i = i+1;	
                     }
-                    if (i>32 || i<1) {
+                    if(i>32 || i<1) {
                         printf("\a\n *Tama%co invalido*\n",(char)164);
                     }
-                }while (i>32);	
+                }while(i>32);	
 
                 // Comparacion de las dos cadenas
-                bandera=1;
-                for(i=0;i<n;i++) {
+                bandera = 1;
+                for(i=0; i<n; i++) {
                     if(cad1[i]!=cad2[i]) {
                         bandera=0;
                     }	
                 }
+
                 // Resultado de la comprobación
-                if (bandera==1) {
+                if(bandera==1) {
                     printf("\n *Las cadenas son iguales*\n");
                 }
                 else {
@@ -171,18 +172,18 @@ int main ()
 				break;
 
             case 5:
-                printf ("\n Hasta luego, vuelva pronto\n");
+                printf("\n Hasta luego, vuelva pronto\n");
                 break;
 
             default:
-                printf ("\n Opcion invalida");
+                printf("\n Opcion invalida");
                 break;
         }
 
-        if (opc >= 1 && opc <= 5)
-            printf ("\n%s\n", linea2);
+        if(opc >= 1 && opc <= 5) // Imprime solo si la opcion era valida
+            printf("\n%s\n", LINE2);
 
-    } while (opc!=5);
+    } while(opc!=5);
 
     return 0;
 }
