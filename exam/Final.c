@@ -117,7 +117,7 @@ int main () {
                     };
                     printf("\n La menor calificacion es: %i\n",califs[0]);
                     printf(" La mayor calificacion es: %i\n",califs[cont-2]);
-                };
+                }else{printf("No ingresaste ninguna calificación valida");};
 	            break;
 
             case 4:
