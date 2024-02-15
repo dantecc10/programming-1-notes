@@ -93,7 +93,9 @@ int main()
 
         case 2:
 
-            int dccn, dcclim, dccacumulador = 0, dcci = 0;
+            int dccn, dcclim, dccacumulador, dcci;
+            dccacumulator=0;
+            dcci=0
 
             printf("\nIntroduce un número: ");
             scanf("%i", &dccn);
@@ -162,7 +164,7 @@ int main()
             do
             {
                 printf("\n Ingrese primera cadena\n ");
-                scanf("%s", &cad1);
+                scanf("%s", cad1);
                 while (getchar() != '\n')
                 {
                 }
@@ -184,7 +186,7 @@ int main()
             do
             {
                 printf(" Ingrese segunda cadena\n ");
-                scanf("%s", &cad2);
+                scanf("%s", cad2);
                 while (getchar() != '\n')
                 {
                 }
