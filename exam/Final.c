@@ -21,7 +21,7 @@
 
 #include <stdio.h>
 
-#define LINE1 "********************************"
+#define LINE1 "   **************************"
 #define LINE2 "--------------------------------"
 
 int main () {
@@ -29,11 +29,11 @@ int main () {
 
     do {
         printf("\n%s", LINE1);
-        printf("\n* 1.   Temperatura             *");
-        printf("\n* 2.   Multiplos               *");
-        printf("\n* 3.   Arreglos                *");
-        printf("\n* 4.   Cadenas                 *");
-        printf("\n* 5.   Salir                   *");
+        printf("\n   * 1.   Temperatura       *");
+        printf("\n   * 2.   Multiplos         *");
+        printf("\n   * 3.   Arreglos          *");
+        printf("\n   * 4.   Cadenas           *");
+        printf("\n   * 5.   Salir             *");
         printf("\n%s", LINE1);
         
         do { // Ciclo que valida la entrada
@@ -117,7 +117,7 @@ int main () {
                     };
                     printf("\n La menor calificacion es: %i\n",califs[0]);
                     printf(" La mayor calificacion es: %i\n",califs[cont-2]);
-                }else{printf("No ingresaste ninguna calificación valida");};
+                }else{printf("No ingresaste ninguna calificación valida\n");};
 	            break;
 
             case 4:
@@ -172,7 +172,7 @@ int main () {
 				break;
 
             case 5:
-                printf("\n Hasta luego, vuelva pronto\n");
+                printf("\n Hasta luego, vuelva pronto :)\n");
                 break;
 
             default:
