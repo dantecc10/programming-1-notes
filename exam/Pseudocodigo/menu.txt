@@ -5,23 +5,20 @@ Salida: resultado de temperatura, // agregar
 inicio
     Mientras (opc <> 5) hacer
 
-        entero opc
-        caracter LINE1= "---------------------------"
-
-        escribir LINE1
+        escribir "---------------------------"
         escribir "   * 1.   Temperatura       *"
         escribir "   * 2.   Multiplos         *"
         escribir "   * 3.   Arreglos          *"
         escribir "   * 4.   Cadenas           *"
         escribir "   * 5.   Salir             *"
-        escribir LINE1
+         escribir "---------------------------"
 
         leer(opc)
 
-        segun sea (opc) hacer
+        Segun sea (opc) Hacer
 
-            caso 1:
-                flotante temp
+            1:
+                escribir "Dame la temperatura"
                 leer(temp)
                 si (temp<35)
                     escribir "El sujeto tiene hipotermia")
@@ -33,28 +30,26 @@ inicio
                     FinSi
                 FinSi
             
-            caso 2:
-                Entero n, lim, acumulador, i
-	
-	            Escribir "Introduce un número: " 
+             2:	
+	        Escribir "Introduce un número: " 
                 Leer n
                 Escribir "Indica un límite: "
                 Leer lim
-                Mientras (n*i) <= lim
-                    acumulador = acumulador + (n*i)
-                    i = (i+1)
+                Mientras ((n*i) <= lim)
+                    acumulador <- acumulador + (n*i)
+                    i <- (i+1)
                 FinMientras
                     Escribir "La suma de los multiplos de ", n, " hasta el numero ", lim, " es ", acumulador, "."
-            caso 3:
+            3:
+                
+            4:
                 // codigo
-            caso 4:
-                // codigo
-            caso 5:
+            5:
                 escribir "Hasta luego, vuelva pronto :)")
             
-            Caso cualquiera:
+            De otro modo
                 Esribir "Valor invalido :("
         
-        FinSegunSea
+        FinSegun
     FinMientras
 Fin
