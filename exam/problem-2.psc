@@ -3,9 +3,9 @@ Inicio
 	Entero n, lim, acumulador = 0, i = 0;
 
 	Escribir "\nIntroduce un número: "
-	scanf("%i", &n);
-	printf("\nIndica un límite: ");
-	scanf("%i", &lim);
+	Leer n
+	Escribir"\nIndica un límite: "
+	Leer n
 	while((n*i)<=lim) {
 		acumulador += n*i;
 		i++;
