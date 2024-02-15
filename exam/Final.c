@@ -94,8 +94,8 @@ int main()
         case 2:
 
             int dccn, dcclim, dccacumulador, dcci;
-            dccacumulator=0;
-            dcci=0
+            dccacumulador=0;
+            dcci=0;
 
             printf("\nIntroduce un número: ");
             scanf("%i", &dccn);
