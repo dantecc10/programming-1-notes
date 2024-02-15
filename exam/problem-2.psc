@@ -1,15 +1,13 @@
-
-Inicio
-	Entero n,
-	lim, acumulador = 0, i = 0;
-
-Escribir "\nIntroduce un n√∫mero: " Leer n
-		Escribir "\nIndica un l√≠mite: " Leer n
-			Mientras n *i <= lim
-								 acumulador = acumulador + n *i
-															   i = i + 1 FinMientras
-
-																		   Escribir "\nLa suma de los multiplos de ",
-								 n, " hasta el numero ", lim, " es ", acumulador, "."
-
-	Fin
+Algoritmo Problem
+	Definir n, lim, acumulador, i como Entero
+	
+	Escribir "Introduce un n˙mero: " 
+	Leer n
+	Escribir "Indica un lÌmite: "
+	Leer lim
+	Mientras (n*i) <= lim
+		acumulador = acumulador + (n*i)
+		i = (i+1)
+	FinMientras
+		Escribir "La suma de los multiplos de ", n, " hasta el numero ", lim, " es ", acumulador, "."
+FinAlgoritmo
