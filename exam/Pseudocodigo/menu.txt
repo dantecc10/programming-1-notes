@@ -5,28 +5,28 @@ Salida: resultado de temperatura, // agregar
 inicio
     Mientras (opc <> 5) hacer
 
-        escribir "---------------------------"
-        escribir "   * 1.   Temperatura       *"
-        escribir "   * 2.   Multiplos         *"
-        escribir "   * 3.   Arreglos          *"
-        escribir "   * 4.   Cadenas           *"
-        escribir "   * 5.   Salir             *"
-         escribir "---------------------------"
+        Escribir "---------------------------"
+        Escribir "   * 1.   Temperatura       *"
+        Escribir "   * 2.   Multiplos         *"
+        Escribir "   * 3.   Arreglos          *"
+        Escribir "   * 4.   Cadenas           *"
+        Escribir "   * 5.   Salir             *"
+         Escribir "---------------------------"
 
         leer(opc)
 
         Segun sea (opc) Hacer
 
             1:
-                escribir "Dame la temperatura"
+                Escribir "Dame la temperatura"
                 leer(temp)
                 si (temp<35)
-                    escribir "El sujeto tiene hipotermia")
-                sino
+                    Escribir "El sujeto tiene hipotermia")
+                SiNo
                     si (temp>=37)
-                        escribir "La temperatura es normal")
-                    sino
-                        escribir "El sujeto tiene hipertermia")
+                        Escribir "La temperatura es normal")
+                    SiNo
+                        Escribir "El sujeto tiene hipertermia")
                     FinSi
                 FinSi
             
@@ -43,9 +43,37 @@ inicio
             3:
                 
             4:
-                // codigo
+                Escribir "Dame la primera cadena"
+                Leer cad1
+                Escribir "Dame la segunda cadena"
+                Leed cad1
+
+                Mientras (cad1[i] <> '\0') hacer
+                    i = i+1
+                FinMientras
+                i = i-1
+
+                Mientras (cad1[j] <> '\0') hacer
+                    j = j+1
+                FinMientras
+                j = j-1
+
+                Si (i=j)
+                    Para x=0 hasta i-1 incremento 1 hacer
+                        Si (cad1[i]<>cad2[i]) entonces
+                            bandera = 0
+                    FinPara
+                SiNo
+                    bandera = 1   
+                FinPara
+                Si (badera=1)
+                    Escribir "Las cadenas son iguales"
+                SiNo
+                    Escribir "Las cadenas son diferentes"
+                FinSi
+
             5:
-                escribir "Hasta luego, vuelva pronto :)")
+                Escribir "Hasta luego, vuelva pronto :)")
             
             De otro modo
                 Esribir "Valor invalido :("
