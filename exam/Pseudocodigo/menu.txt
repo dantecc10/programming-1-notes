@@ -1,0 +1,60 @@
+Algoritmo: examen
+Variables: opcion, temperatura, numero, acumulador // agregar cada opcion
+Salida: resultado de temperatura, // agregar
+
+inicio
+    Mientras (opc <> 5) hacer
+
+        entero opc
+        caracter LINE1= "---------------------------"
+
+        escribir LINE1
+        escribir "   * 1.   Temperatura       *"
+        escribir "   * 2.   Multiplos         *"
+        escribir "   * 3.   Arreglos          *"
+        escribir "   * 4.   Cadenas           *"
+        escribir "   * 5.   Salir             *"
+        escribir LINE1
+
+        leer(opc)
+
+        segun sea (opc) hacer
+
+            caso 1:
+                flotante temp
+                leer(temp)
+                si (temp<35)
+                    escribir "El sujeto tiene hipotermia")
+                sino
+                    si (temp>=37)
+                        escribir "La temperatura es normal")
+                    sino
+                        escribir "El sujeto tiene hipertermia")
+                    FinSi
+                FinSi
+            
+            caso 2:
+                Entero n, lim, acumulador, i
+	
+	            Escribir "Introduce un número: " 
+                Leer n
+                Escribir "Indica un límite: "
+                Leer lim
+                Mientras (n*i) <= lim
+                    acumulador = acumulador + (n*i)
+                    i = (i+1)
+                FinMientras
+                    Escribir "La suma de los multiplos de ", n, " hasta el numero ", lim, " es ", acumulador, "."
+            caso 3:
+                // codigo
+            caso 4:
+                // codigo
+            caso 5:
+                escribir "Hasta luego, vuelva pronto :)")
+            
+            Caso cualquiera:
+                Esribir "Valor invalido :("
+        
+        FinSegunSea
+    FinMientras
+Fin
