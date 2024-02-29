@@ -13,8 +13,7 @@ int main() {
 		scanf("%i", &a[i]);
 	}
 
-	for(int i = 1; i<n; i++) {
-		a[0] = a[i];
+	for(int i = 0; i<n; i++) {
 		j=i;
 
 		while(a[j]<a[j-1]) {
