@@ -416,3 +416,7 @@ int main(){
 ```
 
 Ping
+
+## Apuntador
+
+Si el tipo es `void`,
