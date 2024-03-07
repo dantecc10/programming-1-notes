@@ -1,120 +1,86 @@
 #include <stdio.h>
-#define MAX 100
-char opcion;
-int dato, i, j, matriz1[MAX][MAX], matriz2[MAX][MAX], matriz3[MAX][MAX], m1, n1, m2, n2, acumulador, sumador, a, b, c, valor;
 
-readMatrix(int a, int b, int matrix[a][b]) {
-	for (i = 0; i < a; i++) {
-		for (j = 0; j < b; j++) {
-			printf("\nIngresa m%ij%i: ", i, j);
+#define MAX 10
+
+void readMatrix(int, int, int[MAX][MAX]);
+void displayMatrix(int, int, int[MAX][MAX]);
+void product(int, int, int, int[MAX][MAX], int[MAX][MAX], int[MAX][MAX]);
+
+void readMatrix(int a, int b, int matrix[MAX][MAX]) {
+	for (int j = 0; j < b; j++) {
+		for (int i = 0; i < a; i++) {
+			printf("M[%i][%i]: ", i+1, j+1);
 			scanf("%i", &matrix[i][j]);
 		}
 	}
-
-}
-
-displayMatrix(int a, int b, int matrix[a][b]) {
 	printf("\n");
-	for (i = 0; i < a; i++) {
-		printf("   ");
-		for (j = 0; j < b; j++) {
-			// cout<<"Dato ["<<i<<"]["<<j<<"]: "<<matriz1[i][j]<<endl;
-			printf("%i   ", matrix[i][j]);
+}
+
+void displayMatrix(int a, int b, int matrix[MAX][MAX]) {
+	for (int i = 0; i < a; i++) { // Imprime la matriz
+		for (int j = 0; j < b; j++) {
+			if (j==0)
+				printf("|");
+			if (j==b-1) // Casos por ubicacion del elemento
+				printf(" %4i ", matrix[i][j]);
+			else
+				printf(" %4i ,", matrix[i][j]);
 		}
-		printf("\n");
+		printf("|\n");
 	}
 }
 
-main() {
-	// Mutiplicación de matrices
-	printf("\nIntroduce los valores de m y r para la primera matriz: ");
-	printf("\nm: ");
-	scanf("%i", &m1);
-	printf("\nn: ");
-	scanf("%i", &n1);
-	printf("\nIntroduce los valores de m y r para la segunda matriz: ");
-	printf("\nm: ");
-	scanf("%i", &m2);
-	printf("\nn: ");
-	scanf("%i", &n2);
-	if (n1 != m2) {
-		printf("\nEl producto de las matrices está indefinido.");
-	} else {
-		printf("\nIngresa las datos de la matriz 1:");
-		readMatrix(m1, n1, matriz1);
-		displayMatrix(m1, n1, matriz1);
-		/*for (i = 0; i < m1; i++) {
-			for (j = 0; j < n1; j++) {
-				printf("\nIngresa m%ij%i: ", i, j);
-				scanf("%i", &matriz1[i][j]);
-			}
-		}*/
-		/*for (i = 0; i < m1; i++) {
-			printf("   ");
-			for (j = 0; j < n1; j++) {
-				// cout<<"Dato ["<<i<<"]["<<j<<"]: "<<matriz1[i][j]<<endl;
-				printf("%i   ", matriz1[i][j]);
-			}
-			printf("\n");
-		}*/
-		printf("\nIngresa las datos de la matriz 2:");
-		readMatrix(m2, n2, matriz2);
-		displayMatrix(m2, n2, matriz2);
-		/*for (i = 0; i < m2; i++) {
-			for (j = 0; j < n2; j++) {
-				printf("\nIngresa m%ij%i: ", i, j);
-				scanf("%i", &matriz2[i][j]);
-			}
-		}*/
+void product(int f1, int f2, int c2, int matriz1[MAX][MAX], int matriz2[MAX][MAX], int matriz3[MAX][MAX]) {
+	
+	// Código para calcular las direcciones de la matriz resultante
+	int a, b, c, product;
 
-		// Código para calcular las direcciones de matriz 3
-		/*
-		for (a = 0; a < m1; a++) {
-			// Iterador a
-			// Aquí se harán los cálculos para los datos de m iterado (empieza en m: a = 0)
-			for (b = 0; b < n2; b++) {
-				// Iterador b
-				// Aquí se harán los cálculos para los datos de m iterado (empieza en n: b = 0)
-				acumulador = 0;
-				for (c = 0; c < m1; c++) {
-					// Iterador c
-					// Aquí se harán los cálculos para los datos de m iterado (empieza en l: c = 0)
-					sumador = 0;
-					sumador = ((matriz1[a][c]) * (matriz2[c][b]));
-					acumulador = (acumulador + sumador);
-					sumador = 0;
-				}
-				matriz3[a][b] = acumulador;
-				acumulador = 0;
+	for (a = 0; a < f1; a++) { 
+		// Iteracion sobre las filas de M1
+		for (b = 0; b < c2; b++) {
+			// Iteracion sobre las columnas de M2
+			product = 0;
+			for (c = 0; c < f2; c++) {
+				// Iteracion sobre el producto de filas x columnas
+				product += (matriz1[a][c])*(matriz2[c][b]);
 			}
+			matriz3[a][b] = product; // asignacion
 		}
-		*/
-		
-		int matriz3[m1][n2];
-		
-		// Código para calcular las direcciones de matriz 3
-		for (int a = 0; a < m1; a++) {
-			// Iterador a
-			// Aquí se harán los cálculos para los datos de m iterado (empieza en m: a = 0)
-			for (int b = 0; b < n2; b++) {
-				// Iterador b
-				// Aquí se harán los cálculos para los datos de m iterado (empieza en n: b = 0)
-				int acumulador = 0;
-				for (int c = 0; c < m1; c++) {
-					// Iterador c
-					// Aquí se harán los cálculos para los datos de m iterado (empieza en l: c = 0)
-					int sumador = 0;
-					sumador = ((matriz1[a][c]) * (matriz2[c][b]));
-					acumulador = (acumulador + sumador);
-					sumador = 0;
-				}
-				matriz3[a][b] = acumulador;
-				acumulador = 0;
-			}
-		}
-		
-		printf("\nEl producto de las matrices es: \n");
-
-		displayMatrix(m1, n2, matriz3);
 	}
+}
+
+int main() {
+	int f1, c1, f2, c2;
+
+	// Lectura dimensiones
+	printf("\nIntroduce las dimensiones de la primera matriz: ");
+	printf("\nFilas: ");
+	scanf("%i", &f1);
+	printf("Columnas: ");
+	scanf("%i", &c1);
+	printf("\nIntroduce las dimensiones de la segunda matriz: ");
+	printf("\nFilas: ");
+	scanf("%i", &f2);
+	printf("Columnas: ");
+	scanf("%i", &c2);
+
+	if (c1 != f2) { // Verifica si es posible el producto
+		printf("\nEl producto de las matrices est%c indefinido.",160); // Codigo de error
+		return 1;
+	} else {
+		int matriz1[MAX][MAX], matriz2[MAX][MAX], matriz3[MAX][MAX];
+
+		printf("\nIngresa los datos de la matriz 1:\n");
+		readMatrix(f1, c1, matriz1);
+		displayMatrix(f1, c1, matriz1);
+
+		printf("\nIngresa los datos de la matriz 2:\n");
+		readMatrix(f2, c2, matriz2);
+		displayMatrix(f2, c2, matriz2);
+
+		printf("\nMatriz resultante:\n\n");
+		product(f1, f2, c2, matriz1, matriz2, matriz3);
+		displayMatrix(f1, c2, matriz3);
+	}
+	return 0;
 }
