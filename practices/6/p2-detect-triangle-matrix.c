@@ -2,19 +2,30 @@
 #define MAX 100
 char opcion;
 int n, dato, i, j, triangular, matriz[MAX][MAX]; // Uso la varaible triangular como una flag
-main() {
+void readMatrix(int a, int b, int matrix[MAX][MAX]) {
+	for (int i = 0; i < b; i++) {
+		for (int j = 0; j < a; j++) {
+			printf("M[%i][%i]: ", i+1, j+1);
+			scanf("%i", &matrix[i][j]);
+		}
+	}
+	printf("\n");
+}
+int main() {
 	printf("Ingresa la dimensión de la matriz: ");
 	scanf("%i", &n);
 
 
-	printf("\nIntroduce los datos de la matriz: ");
+	/*printf("\nIntroduce los datos de la matriz: ");
 	for(i = 0; i<n; i++) {
 		for(j = 0; j < n; j++) {
 			printf("\nIngresa el dato [%i][%i]: ", i, j);
 			scanf("%i", &dato);
 			matriz[i][j] = dato;
 		}
-	}
+	}*/
+	
+	readMatrix(n, n, matriz);
 
 	triangular = 1;
 	// Detectar matriz triangular superior (triángulo superior)
