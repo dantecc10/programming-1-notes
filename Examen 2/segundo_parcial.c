@@ -102,7 +102,7 @@ int main (void){
 	char frase[MAX];  //declaración de variables
 	int fil,col,num_estudiantes; //
 	//⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻⁻
-	estudiantes lista[MAX]; 
+	struct estudiantes lista[MAX]; 
 	do{
 		menu();
 	    scanf("%i",&opc);
