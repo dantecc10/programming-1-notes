@@ -113,7 +113,7 @@ int main (void) {
 				(palindromo(frase)) ? printf("\n¡¡ Es un palindromo !!\n") : printf("\nNO es un palindromo\n");
 				break;
 			case 2://matrices
-				printf("Dame la dimensión de la matriz: ");
+				printf("Dame la dimension de la matriz: ");
 				scanf("%i x %i",&fil,&col);
 				if(fil<=MAX && col<=MAX) {
 					almacenar_matriz(fil,col,matrix);
