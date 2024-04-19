@@ -16,6 +16,7 @@ int main()
     printf(" ------| Copia de archivos |------\n\n");
 
     do { // Entrada del archivo para copiar
+        opc = 'n';
         printf(" Archivo a copiar: ");
         fgets(name, 30, stdin);
         cleanCad(name);
