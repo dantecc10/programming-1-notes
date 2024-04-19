@@ -26,6 +26,7 @@ int main()
     printf(" ------| Escaner de archivos |------\n\n");
 
     do { // Entrada del archivo
+        opc = 'n';
         printf(" Archivo a escanear: ");
         fgets(name, 30, stdin);
         cleanCad(name);
@@ -64,13 +65,13 @@ void cleanCad(char cad[]) // Limpia el caracter '\n' (cuestion de usar fgets)
     }
 }
 
-int wordCount(FILE *punter)
+int wordCount(FILE *punter) // Problema tanto por fin de linea, como un problema similar al de charCount
 {
     int count=0, i=0;
 
     while(fgets(line, MAX, punter)) {
         while (line[i] != '\0') {
-            if (line[i] == ' ' || line[i] == '\n')
+            if (line[i] == ' ')
                 count++;
             i++;
         }
@@ -79,7 +80,7 @@ int wordCount(FILE *punter)
     return count;
 }
 
-int charCount(FILE *punter)
+int charCount(FILE *punter) // Problema por fgets (obtiene caracteres acentuados de manera erronea)
 {
     int count=0;
 
