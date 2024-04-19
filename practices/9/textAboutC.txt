@@ -1,0 +1,7 @@
+El lenguaje C es un lenguaje de programación de propósito general creado por Dennis Ritchie en los laboratorios Bell en la década de 1970. Es uno de los lenguajes más populares y ampliamente utilizados en el mundo de la programación debido a su eficiencia, portabilidad y potencia.
+
+Una de las características clave de C es su capacidad para trabajar a un nivel muy cercano al hardware de la computadora, lo que lo hace ideal para desarrollar sistemas operativos, controladores de dispositivos y aplicaciones de bajo nivel. Al mismo tiempo, también es lo suficientemente flexible como para ser utilizado en el desarrollo de aplicaciones de alto nivel, como aplicaciones de escritorio, juegos y sistemas embebidos.
+
+El lenguaje C se caracteriza por su sintaxis clara y concisa, su manejo directo de la memoria y sus capacidades de programación estructurada. Utiliza una serie de constructos como variables, estructuras de control, funciones y punteros para facilitar la escritura de programas eficientes y organizados.
+
+A lo largo de los años, el lenguaje C ha dado lugar a numerosos dialectos y extensiones, como C++, que agrega características de programación orientada a objetos, y C99, que introduce mejoras en la sintaxis y funcionalidades adicionales. A pesar de estas variaciones, el núcleo del lenguaje C ha permanecido sólido y ha mantenido su relevancia en la industria de la programación.
