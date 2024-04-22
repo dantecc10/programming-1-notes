@@ -12,14 +12,14 @@
 
 void cleanCad(char cad[]);
 int wordCount(FILE *punter);
-int wordCount(FILE *punter);
-int wordCount(FILE *punter);
+int charCount(FILE *punter, int *spaces);
+int lineCount(FILE *punter);
 
 char line[MAX+1]; // Variable global para uso en funciones
 
 int main()
 {
-    int words, chars, lines;
+    int words, chars, lines, spaces=0;
     char name[31], opc;
     FILE *imput;
 
@@ -44,11 +44,12 @@ int main()
 
     // Funciones que realizan los calculos
     words = wordCount(imput);
-    chars = charCount(imput);
+    chars = charCount(imput, &spaces);
+    spaces += chars;
     lines = lineCount(imput);
 
     // Imprime los valores
-    printf("\n Cantidad de palabras: %d\n Cantidad de caracteres: %d\n Cantidad de lineas: %d\n", words, chars, lines);
+    printf("\n Cantidad de palabras: %d\n Cantidad de caracteres (sin espacios): %d\n Cantidad de caracteres (con espacios): %d\n Cantidad de lineas: %d\n", words, chars, spaces, lines);
 
     fclose(imput);
 
@@ -65,29 +66,37 @@ void cleanCad(char cad[]) // Limpia el caracter '\n' (cuestion de usar fgets)
     }
 }
 
-int wordCount(FILE *punter) // Problema tanto por fin de linea, como un problema similar al de charCount
+int wordCount(FILE *punter)
 {
-    int count=0, i=0;
+    int count=0, i;
 
     while(fgets(line, MAX, punter)) {
-        while (line[i] != '\0') {
-            if (line[i] == ' ')
-                count++;
-            i++;
-        }
         i = 0;
+        if (line[0] != '\n') {
+            while (line[i] != '\0') {
+                if (line[i] == ' ')
+                    count++;
+                i++;
+            }
+            count++;
+        }
     }
     return count;
 }
 
-int charCount(FILE *punter) // Problema por fgets (obtiene caracteres acentuados de manera erronea)
+int charCount(FILE *punter, int *spaces)
 {
     int count=0;
+    char cGet;
 
     rewind(punter);
-    while(fgets(line, MAX, punter)) {
-        cleanCad(line);
-        count += strlen(line);
+    while ((cGet = fgetc(punter)) != EOF) {
+        if (cGet < 33 || cGet > 126) { // Limites de los caracteres ascii reconocibles
+            if (cGet == ' ')
+                (*spaces)++;
+            cGet = fgetc(punter);
+        } if (cGet != '\n')
+            count++;
     }
     return count;
 }
