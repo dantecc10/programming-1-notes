@@ -2,7 +2,7 @@
 #include <string.h>
 #define MAX 20
 
-int i; //variable global
+int i;
 
 struct jugadores{
 	char nickname[MAX];
@@ -32,17 +32,25 @@ int main(){
 	int opc,donde; //declaracion de variables
 	char nickname_buscar[MAX];
 	jugadores lista[MAX];
+	FILE *jugadores_arch;
 	
-	for(i=0;i<MAX;i++){
-	    lista[i].bandera=0; // se inicializan todas las bandera en 0, 
-        };                      //indicando que todas las posiciones están desocupadas
-
+	jugadores_arch=fopen("Jugadores_:)","rb"); //para la recuperación de datos en el archivo binario
+	
+	if(jugadores_arch != NULL){ //existe el archivo binario
+		fread(lista, sizeof(struct jugadores), MAX, jugadores_arch);
+                fclose(jugadores_arch);
+	}else{ // no  existe el archivo binario
+		for(i=0;i<MAX;i++){
+		    lista[i].bandera=0; // se inicializan todas las bandera en 0, 
+                };                      //indicando que todas las posiciones están desocupadas
+	}; 
+	
 	do{
 		menu();
 		scanf("%i",&opc);
 		switch(opc){
 			case 1: break;
-		
+		  
 			case 2: break;
 			
 			case 3://buscar jugador
@@ -52,20 +60,26 @@ int main(){
 					 printf("\nEncontrado!\n\n");
 					 printf("Nickname: %s \n",lista[donde].nickname);
 					 printf("Nivel: %i\n",lista[donde].nivel);
-					 printf("Vidas: %i\n",lista[donde].vidas);
-					 
-				 }else{
+					 printf("Vidas: %i\n",lista[donde].vidas);	 
+			     }else{
 				     printf("\nJugador no encontrado\n");
-				 };
+			     };
 			     break;
 			
 			case 4: break;
 			
-			case 5: break;
+			case 5: 
+			      printf("\nSaliendo...");
+			      break;
 			
-			default:
+		        default:
 			     printf("Opcion invalida\n"); break;
 		};
 			
 	}while(opc!=5);
+	//para guardar los datos en el archivo binario
+	jugadores_arch=fopen("Jugadores_:)","wb"); 
+	fwrite(lista, sizeof(struct jugadores), MAX, jugadores_arch); //se escribe en el archivo binario
+	fclose(jugadores_arch);
 }
+
