@@ -8,14 +8,31 @@ struct jugadores{
 	int bandera;
 };
 void menu(){
-	printf("\t------------ MENU ------------\n");
-	printf("\t1. Altas\n\t2. Mostrar jugadores en orden\n\t3. Buscar un jugador\n");
-	printf("\t4. Eliminar un jugador\n\t5. Salir\n\tR: ");
+	printf("\n------------ MENU ------------\n");
+	printf("1. Altas\n2. Mostrar jugadores en orden\n3. Buscar un jugador\n");
+	printf("4. Eliminar un jugador\n5. Salir\n\nR: ");
 }
 
 //------------------
 int main(){
+	int opc;
 	jugadores lista[20];
-	menu();
-
+	do{
+	   menu();
+           scanf("%i",&opc);
+	   switch(opc){
+		case 1: break;
+			
+		case 2: break;
+			
+		case 3: break;
+			
+		case 4: break;
+			
+		case 5: break;
+			
+		default:
+		      printf("Opcion invalida\n"); break;
+	  };		
+	}while(opc!=5);
 }
