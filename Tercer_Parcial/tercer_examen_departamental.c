@@ -33,8 +33,8 @@ int main(){
 	char nickname_buscar[MAX];
 	jugadores lista[MAX];
 	
-	for(i=0;i<20;i++){
-		lista[i].bandera=0; // se inicializan todas las bandera en 0, 
+	for(i=0;i<MAX;i++){
+	    lista[i].bandera=0; // se inicializan todas las bandera en 0, 
         };                      //indicando que todas las posiciones están desocupadas
 
 	do{
