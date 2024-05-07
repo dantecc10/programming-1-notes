@@ -38,6 +38,7 @@ void guardar_datos(struct jugadores var[]) // Guarda el Nickname y vidas restant
 		if (var[i].bandera != 0 && (strlen(var[i].nickname)) > 0)
 			fprintf(players, "%c - %d\n", var[i].nickname, var[i].vidas);
 	}
+	fclose(players);
 }
 
 // ----------------------------------------------------------------------------------------------------
