@@ -18,6 +18,37 @@ void menu() {
 	printf("4. Eliminar un jugador\n5. Salir\n\nR: ");
 }
 
+
+void alta_jugador(struct jugadores c[]){
+	int disponibilidad=0;
+	i=0;
+	do { //Checa espacio disponible en estructura
+		if(c[i].bandera==0){
+			disponibilidad=1;
+		}
+		i++;
+	} while((disponibilidad==0)&&(i<MAX));
+	
+	if (disponibilidad==1) {//Agrega jugador en espacio disponible
+		i--;
+		printf("Ingrese nickname: ");
+		scanf("%s",&c[i].nickname);
+		printf("Ingrese nivel: ");
+		scanf("%i",&c[i].nivel);
+		printf("Ingrese numero de vidas: ");
+		scanf("%i",&c[i].vidas);
+	}
+	else {
+		printf("No hay espacio disponible");
+	}
+}
+
+
+
+
+
+
+
 int buscar_jugador(struct jugadores c[], char nickname_buscar[MAX],int *donde){
 	for (i=0;i<MAX;i++){
 		if (c[i].bandera!=0 && (strcmp(c[i].nickname,nickname_buscar))==0) {
@@ -65,6 +96,7 @@ int main(){
 		scanf("%i",&opc);
 		switch(opc){
 			case 1: // Alta
+				alta_jugador(lista);
 				break;
 		  
 			case 2: // Mostrar
