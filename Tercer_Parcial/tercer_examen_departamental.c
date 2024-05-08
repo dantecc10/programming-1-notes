@@ -32,7 +32,7 @@ void alta_jugador(struct jugadores c[]){
 	if (disponibilidad==1) {//Agrega jugador en espacio disponible
 		i--;
 		printf("Ingrese nickname: ");
-		scanf("%s",&c[i].nickname);
+		scanf("%[^\n]s",c[i].nickname);
 		printf("Ingrese nivel: ");
 		scanf("%i",&c[i].nivel);
 		printf("Ingrese numero de vidas: ");
@@ -42,12 +42,6 @@ void alta_jugador(struct jugadores c[]){
 		printf("No hay espacio disponible");
 	}
 }
-
-
-
-
-
-
 
 int buscar_jugador(struct jugadores c[], char nickname_buscar[MAX],int *donde){
 	for (i=0;i<MAX;i++){
@@ -133,7 +127,6 @@ int main(){
 	jugadores_arch = fopen("Jugadores_:)", "wb"); 
 	fwrite(lista, sizeof(struct jugadores), MAX, jugadores_arch); //se escribe en el archivo binario
 	fclose(jugadores_arch);
-
 	// Para guardar en el archivo de texto
 	guardar_datos(lista);
 }
