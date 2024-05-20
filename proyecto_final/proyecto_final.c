@@ -16,6 +16,7 @@ struct almacen
 	int descuento;
 	int bandera;
 };
+
 void animacion_carrito()
 {
 	int num = 70;
@@ -33,6 +34,7 @@ void animacion_carrito()
 	};
 	printf("💥\n");
 }
+
 void menu_admin()
 {
 	printf("\n%s\n", LINE1);
@@ -40,6 +42,7 @@ void menu_admin()
 	printf("3. Cambios en los productos\n4. Salir\n");
 	printf("%s\nR: ", LINE1);
 }
+
 void descuentos(char decidir, struct almacen a[], int num)
 {
 	if (decidir == 'S' || decidir == 's')
