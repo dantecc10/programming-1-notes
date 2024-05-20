@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#include <unistd.h> //para usar la función usleep
+#include <windows.h> //para usar la función sleep
 
 #define MAX 50
 #define LINE1 "-------------------------"
@@ -22,14 +22,13 @@ void animacion_carrito()
 	int num = 70;
 	for (int i = 0; i <= 70; i++)
 	{
-		for (int j = 0; j <= num; j++)
-		{
+		for (int j = 0; j <= num; j++) {
 			printf(" ");
-		};
+		}
 		num--;
 		printf("🛒\n");
 		printf("Cargando...\n");
-		usleep(50000);
+		sleep(50);
 		system("clear");
 	};
 	printf("💥\n");
