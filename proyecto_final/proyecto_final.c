@@ -28,12 +28,12 @@ void animacion_carrito()
 			printf(" ");
 		}
 		num--;
-		printf("🛒\n");
+		printf("M/\n");
 		printf("Cargando...\n");
-		sleep(50);
-		system("clear");
+		Sleep(40);
+		system("cls");
 	}
-	printf("💥\n");
+	printf("*\n");
 }
 
 void menu_admin()
@@ -187,22 +187,23 @@ void imprimir_p(struct almacen a[])
 		{
 			printf("Producto: %s\n", a[i].descripcion);
 			printf("Identificador: %ld\n", a[i].identificador);
-			printf("Precio de venta: %.2f\n\n", a[i].pventa);
+			printf("Precio de venta: %.2f\n", a[i].pventa);
+			printf("Cantidad en almacen: %d\n\n", a[i].cantidad);
 		}
 	}
 	printf("\n");
 }
 
-void ticket(int arreglo[], struct almacen a[], FILE *market_arch, char fecha[])
+void ticket(int arreglo[], struct almacen a[], FILE *market_file, char fecha[])
 {
 	int j;
 
-	market_arch = fopen(fecha, "a");
+	market_file = fopen(fecha, "a");
 	float descuentito, total, total_global = 0;
 
-	fprintf(market_arch, "%s", "\n╔═══════════════════════════════════════════════════════════════════════════════╗\n");
-	fprintf(market_arch, "%s", "║  Producto                  Precio      Descuento     Cantidad      Total      ║\n");
-	fprintf(market_arch, "%s", "╠═══════════════════════════════════════════════════════════════════════════════╣\n");
+	fprintf(market_file, "%s", "\n╔═══════════════════════════════════════════════════════════════════════════════╗\n");
+	fprintf(market_file, "%s", "║  Producto                  Precio      Descuento     Cantidad      Total      ║\n");
+	fprintf(market_file, "%s", "╠═══════════════════════════════════════════════════════════════════════════════╣\n");
 	printf("╔═══════════════════════════════════════════════════════════════════════════════╗\n");
 	printf("║  Producto                  Precio      Descuento     Cantidad      Total      ║\n");
 	printf("╠═══════════════════════════════════════════════════════════════════════════════╣\n");
@@ -215,19 +216,19 @@ void ticket(int arreglo[], struct almacen a[], FILE *market_arch, char fecha[])
 			descuentito = a[j].pventa - descuentito;
 			total = arreglo[j] * descuentito;
 			printf("║  %-24s  $%-13.2f  %-12.2i %-8.2i   $%-10.2f║\n", a[j].descripcion, descuentito, a[j].descuento, arreglo[j], total);
-			fprintf(market_arch, "║  %-24s  $%-13.2f  %-12.2i %-8.2i   $%-10.2f║\n", a[j].descripcion, descuentito, a[j].descuento, arreglo[j], total);
+			fprintf(market_file, "║  %-24s  $%-13.2f  %-12.2i %-8.2i   $%-10.2f║\n", a[j].descripcion, descuentito, a[j].descuento, arreglo[j], total);
 			total_global += total;
 		}
 	}
 
 	printf("╚═══════════════════════════════════════════════════════════════════════════════╝\n");
 	printf("                                                                  Total: $%.2f  \n", total_global);
-	fprintf(market_arch, "%s", "╚═══════════════════════════════════════════════════════════════════════════════╝\n");
-	fprintf(market_arch, "                                                                  Total: $%.2f  \n", total_global);
-	fclose(market_arch);
+	fprintf(market_file, "%s", "╚═══════════════════════════════════════════════════════════════════════════════╝\n");
+	fprintf(market_file, "                                                                  Total: $%.2f  \n", total_global);
+	fclose(market_file);
 }
 
-void comprar(struct almacen a[], char fecha[], FILE *market_arch)
+void comprar(struct almacen a[], char fecha[], FILE *market_file)
 {
 	int cantidad_p[MAX], donde, i;
 	long int buscar_e;
@@ -263,33 +264,34 @@ void comprar(struct almacen a[], char fecha[], FILE *market_arch)
 
 	animacion_carrito();
 	printf("\nTicket de compra\n\n");
-	ticket(cantidad_p, a, market_arch, fecha);
+	ticket(cantidad_p, a, market_file, fecha);
 }
+
 //____________________
+
 int main()
 {
 	time_t now;
 	time(&now); // Obtener la fecha actual
 	char fecha[20];
 	strftime(fecha, 20, "%d_%m_%Y.txt", localtime(&now));
-	// -----------------------------------------------------------------------------------
-	FILE *market_arch;	// declaración de archivos, para los tickets
-	FILE *almacen_arch; // para almacenar el almacén
-	// -----------------------------------------------------------------------------------
-	market_arch = fopen(fecha, "a"); // crear un archivo cuyo nombre
-	struct almacen alma[MAX]; // es la fecha actual
-	// -----------------------------------------------------------------------------------
+	
+	FILE *market_file;	// declaración de archivos, para los tickets
+	FILE *almacen_file; // para guardar el almacén
+	
+	market_file = fopen(fecha, "a"); // crear un archivo cuyo nombre
+	struct almacen alma[MAX];
+	
 	int opc1, opc2, i, ventas_del_dia = 0, bandera = 1, cantidad_de_productos;
-	// -----------------------------------------------------------------------------------
 
-	if (market_arch != NULL)
+	if (market_file != NULL)
 	{
-		almacen_arch = fopen("almacen", "rb");
-		if (almacen_arch != NULL)
+		almacen_file = fopen("almacen", "rb");
+		if (almacen_file != NULL)
 		{
-			fread(alma, sizeof(struct almacen), MAX, almacen_arch);
-			fread(&cantidad_de_productos, sizeof(int), 1, almacen_arch);
-			fclose(almacen_arch);
+			fread(alma, sizeof(struct almacen), MAX, almacen_file);
+			fread(&cantidad_de_productos, sizeof(int), 1, almacen_file);
+			fclose(almacen_file);
 		}
 		else
 		{
@@ -300,6 +302,7 @@ int main()
 			};
 			cantidad_de_productos = 0;
 		}
+
 		do
 		{
 			printf("%s\n1. Menu de administrador\n2. Menu de ventas\n3. Salir\n%s\nR:", LINE1, LINE1);
@@ -342,19 +345,19 @@ int main()
 								break;
 
 							case 4:
-								system("clear");
+								system("cls");
 								break;
 						};
 					} while (opc2 != 4);
 					break;
 
 				case 2: // menu de ventas
-					system("clear");
+					system("cls");
 					if (cantidad_de_productos > 0)
 					{
 						imprimir_p(alma);
 						ventas_del_dia++;
-						comprar(alma, fecha, market_arch);
+						comprar(alma, fecha, market_file);
 					}
 					else
 					{
@@ -372,11 +375,11 @@ int main()
 			};
 		} while (opc1 != 3);
 
-		fclose(market_arch);
-		almacen_arch = fopen("almacen", "wb");
-		fwrite(alma, sizeof(struct almacen), MAX, almacen_arch);
-		fwrite(&cantidad_de_productos, sizeof(int), 1, almacen_arch);
-		fclose(almacen_arch);
+		fclose(market_file);
+		almacen_file = fopen("almacen", "wb");
+		fwrite(alma, sizeof(struct almacen), MAX, almacen_file);
+		fwrite(&cantidad_de_productos, sizeof(int), 1, almacen_file);
+		fclose(almacen_file);
 		printf("\n\nTotal de ventas en el dia: %i\n\n", ventas_del_dia);
 
 		if (cantidad_de_productos > 0)
