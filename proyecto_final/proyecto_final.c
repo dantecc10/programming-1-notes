@@ -133,6 +133,7 @@ void imprimir_p(struct almacen a[]){
 		    printf("Producto: %s\n",a[i].descripcion);
 		    printf("Identificador: %ld\n",a[i].identificador);
 		    printf("Precio de venta: %.2f\n\n",a[i].pventa);
+			printf("Cantidad en almacen: %d\n\n", a[i].cantidad);
 		 };
 	};
 	printf("\n");
